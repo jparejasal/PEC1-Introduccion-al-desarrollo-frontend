@@ -79,6 +79,7 @@ h2 {
 
 .formulario-control.error small {    
     border-color: var(--error-color);
+    visibility: visible;
 }
 
 .formulario button {
