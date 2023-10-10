@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de asientos de cine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor-peliculas">
+        <label>Seleccione una película:</label>
+        <select id="listaPeliculas">
+            <option value="10">Avengers: Endgame ($10)</option>
+            <option value="12">Batman: Arkham Knight ($12)</option>
+            <option value="8">Ocean´s Eight ($8)</option>
+            <option value="9">Noveno Sentido ($9)</option>
+        </select>
+    </div>
+
+    <ul class="silleteria">
+        <li>
+            <div class="silla"></div>
+            <small>N/A</small>            
+        </li>
+        <li>
+            <div class="silla seleccionada"></div>
+            <small>seleccionada</small>            
+        </li>
+        <li>
+            <div class="silla ocupada"></div>
+            <small>ocupada</small>            
+        </li>
+    </ul>
+
+    <div class="container">
+        <div class="pantalla"></div>
+
+        <div class="fila">
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+        </div>
+        <div class="fila">
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+        </div>
+        <div class="fila">
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+        </div>
+        <div class="fila">
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla ocupada"></div>
+        </div>
+        <div class="fila">
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+        </div>
+        <div class="fila">
+            <div class="silla ocupada"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla ocupada"></div>
+            <div class="silla"></div>
+            <div class="silla"></div>
+        </div>
+    </div>
+    <p class="texto">Has seleccionado <span id="contador">0</span> sillas por el precio de $<span id="total">0</span></p>
+    <script src="script.js"></script>
+</body>
+</html>
