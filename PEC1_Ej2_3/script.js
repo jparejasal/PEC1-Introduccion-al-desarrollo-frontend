@@ -1,3 +1,4 @@
+const listaDivisas = document.getElementById("listaDivisas");
 const contenedor = document.querySelector('.container');
 const sillas = document.querySelectorAll('.fila .silla:not(.ocupada)');
 const cantSillas = document.getElementById("contador");
@@ -7,8 +8,6 @@ const peliculas = document.getElementById("listaPeliculas");
 poblarInterfazUI();
 
 let precioTaquilla = +peliculas.value;
-
-
 
 // Actualizar contador de sillas seleccionadas
 function actualizarSeleccion() {
@@ -32,11 +31,37 @@ function poblarInterfazUI() {
             }
         });
     }
-
     const indicePeliculaSeleccionada = localStorage.getItem("peliculaSeleccionada");
     if(indicePeliculaSeleccionada !== null) {
         peliculas.selectedIndex = indicePeliculaSeleccionada;
     }
+}
+
+//
+function actualizarDivisa() {    
+    const divisa =listaDivisas.selectedIndex;
+    const cartelera = peliculas.querySelector("option");
+    
+    const texto= peliculas.getElementsByTagName("option")[divisa].text;
+    cartelera.innerText = "red";
+    
+    
+}
+
+// Convertir precio taquilla según divisa
+function calcularDivisaTaquilla() {
+    const divisa = listaDivisas.value;
+    const tarifasCambiarias = peliculas.querySelectorAll("option").values;    
+
+    fetch(`https://v6.exchangerate-api.com/v6/77698641023fb36ba5bdc2c7/latest/${divisa}`).then(res => res.json()).then(data =>{        
+    const miTasa = data.conversion_rates[divisa];
+    
+    for(let i=0; i < tarifasCambiarias.length; i++) {
+        const nuevaTarifa = (tarifasCambiarias[i].value * miTasa).toFixed(2);
+        tarifasCambiarias[i].innerText = nuevaTarifa;
+    }
+   
+    });  
 }
 
 // Guardar datos de película y precio
@@ -46,9 +71,16 @@ function guardarDatosPelicula(indicePelicula, precioPelicula) {
 }
 
 // Event Listeners
+
+// Selección de divisa de pago.
+listaDivisas.addEventListener("change", calcularDivisaTaquilla());
+    
+
+
+
 // Selección de película
 peliculas.addEventListener("change", e => {
-    precioTaquilla = +e.target.value;
+    precioTaquilla = +e.target.value;   
     guardarDatosPelicula(e.target.selectedIndex ,e.target.value);
     actualizarSeleccion();
 } );

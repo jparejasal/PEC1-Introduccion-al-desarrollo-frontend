@@ -19,7 +19,7 @@ function esquemaExito(input) {
     campoFormulario.className = "formulario-control success";
 }
 
-/* // Validación de edad
+// Validación de edad
 function validarEdad(input) {
     if(isNaN(input.value) || input.value < 0 || input.value > 1000) {
         mostrarError(input, "Edad no válida, debe ser numérica entre 0 y 999");
@@ -27,7 +27,7 @@ function validarEdad(input) {
     else {
         esquemaExito(input);
     }   
-} */
+}
 
 // Validación formato de email
 function validarEmail(input) {
@@ -41,7 +41,7 @@ function validarEmail(input) {
 }
 
 // Validación formato de contraseña
-function validarPassword(input) {
+function validarPassword(input) {    
     if (input.value.search(/[a-z]/) < 0) {
         mostrarError(input, "La contraseña debe contener letras minúsculas.");
     }
@@ -82,17 +82,17 @@ function validarLongitudCaracteres(input, min, max) {
 }
 
 // Validar si un valor es numérico
-function esNumerico(input) {      
+function esNumerico(input) {         
     if(isNaN(input.value)) {
-        mostrarError(input, `Este campo ${obtenerCampo(input)} debe ser numérico`);
+        mostrarError(input, `Este campo ${obtenerCampo(input)} debe ser numérico`);        
     }
     else {
-        esquemaExito(input);    
-    }
+        esquemaExito(input);           
+    }    
 }
 
 // Validación rango numérico
-function rangoNumerico(input, min, max) {
+function rangoNumerico(input, min, max) {    
     if(input.value < min) {
         mostrarError(input, `El campo ${obtenerCampo(input)} debe ser mínimo ${min}`);
     }
@@ -120,11 +120,11 @@ function obtenerCampo(input) {
 formulario.addEventListener("submit", function(e) {
     e.preventDefault();
     campoRequerido([usuario, edad, email, clave, confirmaClave]);
-
+    validarEdad(edad);
     validarLongitudCaracteres(usuario , 3, 15);
     validarLongitudCaracteres(clave , 8, Infinity);
-    esNumerico(edad);
-    rangoNumerico(edad, 0, 999);
+    /* esNumerico(edad);
+    rangoNumerico(edad, 0, 999); */
     validarEmail(email);
     validarPassword(clave);   
     validarConcordanciaPassword(clave, confirmaClave);
