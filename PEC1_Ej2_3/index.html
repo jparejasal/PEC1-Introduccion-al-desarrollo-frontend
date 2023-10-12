@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva de asientos de cine</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="contenedor-divisas">
         <label>Seleccione una divisa:</label>
-        <select id="listaDivisas">            
+        <select id="listaDivisas">
+            <option value="USD">USD - US Dollar - $</option>
             <option value="AFN">AFN - Afghan Afghani - ؋</option>
             <option value="ALL">ALL - Albanian Lek - Lek</option>
             <option value="DZD">DZD - Algerian Dinar - دج</option>
@@ -167,7 +170,6 @@
             <option value="UAH">UAH - Ukrainian Hryvnia - ₴</option>
             <option value="AED">AED - United Arab Emirates Dirham - إ.د</option>
             <option value="UYU">UYU - Uruguayan Peso - $</option>
-            <option value="USD">USD - US Dollar - $</option>
             <option value="UZS">UZS - Uzbekistan Som - лв</option>
             <option value="VUV">VUV - Vanuatu Vatu - VT</option>
             <option value="VEF">VEF - Venezuelan Boli­var - Bs</option>
@@ -180,25 +182,27 @@
     <div class="contenedor-peliculas">
         <label>Seleccione una película:</label>
         <select id="listaPeliculas">
-            <option value="10" label="Avengers: Endgame">(10)</option>             
-            <option value="12" label="Batman: Arkham Knight">(12 )
-            <option value="8" label="Ocean´s Eight">(8 )
-            <option value="9" label="Noveno Sentido">(9 )            
+            <option value="10" label="Avengers: Endgame">(10)</option>
+            <option value="12" label="Batman: Arkham Knight">(12)</option>
+            <option value="8" label="Ocean´s Eight">(8)</option>
+            <option value="9" label="Noveno Sentido">(9)</option>
         </select>
+        <span id="precioTaquilla">Precio de la taquilla: </span>
     </div>
+
 
     <ul class="silleteria">
         <li>
             <div class="silla"></div>
-            <small>N/A</small>            
+            <small>N/A</small>
         </li>
         <li>
             <div class="silla seleccionada"></div>
-            <small>seleccionada</small>            
+            <small>seleccionada</small>
         </li>
         <li>
             <div class="silla ocupada"></div>
-            <small>ocupada</small>            
+            <small>ocupada</small>
         </li>
     </ul>
 
@@ -266,7 +270,10 @@
             <div class="silla"></div>
         </div>
     </div>
-    <p class="texto">Has seleccionado <span id="contador">0</span> sillas por el precio de <span id="total">0</span> <small class="currency"></small></p>
+    <p class="texto">Has seleccionado <span id="contador">0</span> sillas por el precio de <span id="total">0</span>
+        <small class="currency"></small>
+    </p>
     <script src="script.js"></script>
 </body>
+
 </html>
