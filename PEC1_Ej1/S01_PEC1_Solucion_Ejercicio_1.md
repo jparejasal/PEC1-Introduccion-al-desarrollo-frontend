@@ -33,7 +33,8 @@ Dos preprocesadores CSS conocidos son: SASS y LESS
 Sourcemaps: son una especie de mapa que vincula el código fuente original al código generado, son archivos que actúan como un puente entre el código fuente original y el código generado, de modo que le permiten a los desarrolladores depurar y entender mejor sus aplicaciones en un entorno de producción.
 
 2.4 Explica qué es un transpilador.
-Transpilador: es un tipo especial de compilador que traduce de un lenguaje fuente a otro fuente también de un nivel de abstracción parecido. Se utiliza en las siguientes situaciones:
+Transpilador: es un tipo especial de compilador que traduce de un lenguaje fuente a otro fuente también de un nivel de abstracción parecido.
+Se utiliza en las siguientes situaciones:
 * La necesidad portar un código existente a otro lenguaje más moderno.
 * Si se requiere migrar de una versión antigua del lenguaje o librerías a otra más moderna.
 * Cuando se utiliza un compilador de modelos (UML) se genera un código de alto nivel que puede ser transpilado a código en lenguajes tradicionales.
@@ -52,7 +53,7 @@ Transpilador: es un tipo especial de compilador que traduce de un lenguaje fuent
 
 3.3 Cita y explica brevemente las características más definitorias de WebPack.
 * Es un paquete de módulos de JavaScript de código abierto.
-* Está hecho principalmente para JavaScript,​ pero puede transformar activos de front-end como HTML, CSS e imágenes si se incluyen los loaders correspondientes.
+* Está hecho principalmente para JavaScript, pero puede transformar activos de front-end como HTML, CSS e imágenes si se incluyen los loaders correspondientes.
 * Toma módulos con dependencias y genera archivos estáticos que representan esos módulos.
 * Se puede utilizar desde la línea de comandos, o se puede configurar utilizando un archivo de configuración que se llama webpack.config.js (archivo usado para  definir reglas, plugins, etc., para un proyecto)
 * Es altamente extensible a través de reglas que permiten a los desarrolladores escribir tareas personalizadas que quieren realizar cuando se agrupan los archivos.

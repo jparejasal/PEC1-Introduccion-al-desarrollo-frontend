@@ -1,9 +1,9 @@
-const divisa_1 = document.getElementById("divisa-1");
-const cantidad_1 = document.getElementById("cantidad-1");
-const divisa_2 = document.getElementById("divisa-2");
-const cantidad_2 = document.getElementById("cantidad-2");
-const tasaCambio = document.getElementById("tasaCambio");
-const inverso = document.getElementById("inverso");
+const divisa_1 = document.getElementById("divisa-1");       // Variable para primer campo de divisa a convertir.
+const cantidad_1 = document.getElementById("cantidad-1");   // Variable para cantidad a convertir.   
+const divisa_2 = document.getElementById("divisa-2");       // Variable para divisa equivalente de conversión.
+const cantidad_2 = document.getElementById("cantidad-2");   // Variable para cantidad equivalente de conversión.
+const tasaCambio = document.getElementById("tasaCambio");   // Variable para valor de tasa de cambio.
+const inverso = document.getElementById("inverso");         // Variable para botón de invertir divisas.
 
 // Validar cantidades negativas
 function cantidadDivisaNegativa() {

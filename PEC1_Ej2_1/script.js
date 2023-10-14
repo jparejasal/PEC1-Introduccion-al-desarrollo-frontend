@@ -1,10 +1,11 @@
-const formulario = document.getElementById("formulario");
-const usuario = document.getElementById("Usuario");
-const edad = document.getElementById("edad");
-const email = document.getElementById("email");
-const clave = document.getElementById("password");
-const confirmaClave = document.getElementById("password2");
-const camposDeEntrada = document.querySelectorAll('input');
+const formulario = document.getElementById("formulario");   // Variable para formulario completo.
+const usuario = document.getElementById("Usuario");         // Variable para valor usuario.
+const edad = document.getElementById("edad");               // Variable para valor edad.
+const email = document.getElementById("email");             // Variable para valor email.
+const clave = document.getElementById("password");          // Variable para valor contraseña.
+const confirmaClave = document.getElementById("password2"); // Variable para valor de confirmación de contraseña.
+const botonRegistrar = document.getElementById("registrar") // Variable para botón de registro.
+const camposDeEntrada = document.querySelectorAll('input'); // Variable para todas las entradas del formulario.
 
 
 // Mostrar mensaje de error
@@ -48,7 +49,7 @@ function validarPassword(input) {
         mostrarError(input, "La contraseña debe contener letras mayúsculas.");
     } else if (input.value.search(/[0-9]/) < 0) {
         mostrarError(input, "La contraseña debe contener dígitos numéricos.");
-    } else if (input.value.search(/[\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:\-]/) < 0) {
+    } else if (input.value.search(/[\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:\-\`\~\=\{\}\"\[\]\<\>\?]/) < 0) {
         mostrarError(input, "La contraseña debe tener caractéres especiales.");
     }
 }
@@ -67,32 +68,7 @@ function validarLongitudCaracteres(input, min, max) {
     }
 }
 
-// Validar si un valor es numérico
-function esNumerico(input) {
-    if (isNaN(input.value)) {
-        mostrarError(input, `Este campo ${
-            obtenerCampo(input)
-        } debe ser numérico`);
-    } else {
-        esquemaExito(input);
-    }
-}
-
-// Validación rango numérico
-function rangoNumerico(input, min, max) {
-    if (input.value<min) {
-        mostrarError(input, `El campo ${obtenerCampo(input)} debe ser mínimo ${min}`);
-    }
-    else if(input.value>max) {
-        mostrarError(input, `El campo ${
-            obtenerCampo(input)
-        } no debe exceder la cantidad de ${max}`);
-    } else {
-        esquemaExito(input);
-    }
-}
-
-// Agregar un oyente de evento "click" a todos los campos de entrada
+// Agregar un event listener "click" a todos los campos de entrada
 camposDeEntrada.forEach(function (input) {
     input.addEventListener("click", function () {
         validarCampoRequerido(input);
@@ -102,8 +78,11 @@ camposDeEntrada.forEach(function (input) {
 // Validar concordancia de las contraseñas
 function validarConcordanciaPassword(input1, input2) {
     if (input1.value !== input2.value) {
-        mostrarError(input2, "Las contraseñas no concuerdan");
+        mostrarError(input2, "Las contraseñas no concuerdan");        
     }
+    else {
+        esquemaExito(input2);
+    }   
 }
 
 // Obtener nombre de campo de formulario
@@ -124,33 +103,39 @@ function validarCampoRequerido(input) {
     }
 }
 
-
-// Añadir oyentes de eventos de entrada para campos requeridos
+// Añadir event listeners de entrada para validaciones de campos
 usuario.addEventListener("input", function () {
     validarLongitudCaracteres(usuario, 3, 15);
     validarCampoRequerido(usuario);
 });
 
-edad.addEventListener("input", function () {
-    validarEdad(edad);
+edad.addEventListener("input", function () {    
+    validarEdad(edad);    
     validarCampoRequerido(edad);
 });
-
 
 email.addEventListener("input", function () {
     validarEmail(email);
     validarCampoRequerido(email);
 });
 
-clave.addEventListener("input", function () {
-    validarPassword(clave);
+clave.addEventListener("input", function () {    
     validarLongitudCaracteres(clave, 8, Infinity);
-    validarCampoRequerido(clave);
-
+    validarPassword(clave);
+    validarCampoRequerido(clave);    
 });
 
 confirmaClave.addEventListener("input", function () {
     validarConcordanciaPassword(clave, confirmaClave);
-    validarCampoRequerido(confirmaClave);
-
+    validarCampoRequerido(confirmaClave);       
 });
+
+// Añadir event listeners de entrada para campos requeridos, uan vez oprimido el botón Registrar
+botonRegistrar.addEventListener("click", function (event) {
+    event.preventDefault();          // Evita el envío del formulario por defecto
+    validarCampoRequerido(usuario);
+    validarCampoRequerido(edad);
+    validarCampoRequerido(email);
+    validarCampoRequerido(clave);
+    validarCampoRequerido(confirmaClave);           
+});     

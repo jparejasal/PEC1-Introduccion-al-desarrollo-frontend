@@ -1,10 +1,10 @@
-const listaDivisas = document.getElementById("listaDivisas");
-const contenedor = document.querySelector('.container');
-const sillas = document.querySelectorAll('.fila .silla:not(.ocupada)');
-const cantSillas = document.getElementById("contador");
-const precioTotal = document.getElementById("total");
-const peliculas = document.getElementById("listaPeliculas");
-const precioTaquillaSpan = document.getElementById("precioTaquilla");
+const listaDivisas = document.getElementById("listaDivisas");               // Variable para listado de divisas.
+const contenedor = document.querySelector('.container');                    // Variable para elementos de la clase .container.
+const sillas = document.querySelectorAll('.fila .silla:not(.ocupada)');     // Variable para sillas seleccionables.
+const cantSillas = document.getElementById("contador");                     // Variable para contador de sillas seleccionadas.
+const precioTotal = document.getElementById("total");                       // Variable para precio total de taquilla.
+const peliculas = document.getElementById("listaPeliculas");                // Variable para listado de películas.
+const precioTaquillaSpan = document.getElementById("precioTaquilla");       // Variable para etiqueta de divisa equivalente.
 
 // Agrega un evento para detectar cambios en la película seleccionada
 listaPeliculas.addEventListener("change", function () {
@@ -16,12 +16,10 @@ listaPeliculas.addEventListener("change", function () {
 listaDivisas.addEventListener("change", function () {
     calcularDivisaTaquilla();
     actualizarSeleccion();
-
 });
 
-
+// Cargar interfaz gráfica de usuario, con información axtualizada.
 poblarInterfazUI();
-
 
 // Actualizar contador de sillas seleccionadas
 function actualizarSeleccion() {
@@ -31,7 +29,6 @@ function actualizarSeleccion() {
     localStorage.setItem("sillasSeleccionadas", JSON.stringify(indiceSillas));
 
     cantSillas.innerText = sillasSeleccionadas.length;
-
 
     // Llama a la función calcularDivisaTaquilla y actualiza el precio en divisa y la divisa
     calcularDivisaTaquilla().then(result => { // Calcula el precio total en la divisa seleccionada
@@ -62,17 +59,6 @@ function poblarInterfazUI() {
     }
 }
 
-//
-function actualizarDivisa() {
-    const divisa = listaDivisas.selectedIndex;
-    const cartelera = peliculas.querySelector("option");
-
-    const texto = peliculas.getElementsByTagName("option")[divisa].text;
-    cartelera.innerText = "red";
-
-
-}
-
 // Convertir precio taquilla según divisa
 function calcularDivisaTaquilla() {
     const currency1 = listaDivisas.value;
@@ -99,15 +85,6 @@ function guardarDatosPelicula(indicePelicula, precioPelicula) {
     localStorage.setItem("peliculaSeleccionada", indicePelicula);
     localStorage.setItem("precioPeliculaSeleccionada", precioPelicula);
 }
-
-// Event Listeners
-
-// // Selección de divisa de pago.
-// listaDivisas.addEventListener("change", calcularDivisaTaquilla());
-
-// // Agrega un evento 'change' al select
-// listaPeliculas.addEventListener("change", calcularDivisaTaquilla());
-
 
 // Selección de película
 peliculas.addEventListener("change", e => {
