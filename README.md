@@ -9,3 +9,5 @@
     b. Calculadora de tasa de cambio: se valida el no uso de números negativos y se agrega un símbolo de espera al momento de hacer la conversión entre divisas.
 
     c. Reserva de asientos de cine con conversor de moneda: se realiza la conversión de divisa y precio de taquilla, según el costo unitario de la película y la cantidad de asientos seleccionados para cada película.
+
+La solución a esta PEC1 se encuentra alojada en el repositorio: https://github.com/jparejasal/PEC1-Introduccion-al-desarrollo-frontend
